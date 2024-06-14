@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HelpSetu | Reset Password</title>
+    <meta name=”robots” content="index, follow">
+    <meta name="description" content="“HelpSetu: Empowering India’s local residents to report and address critical social issues. From child labor to elder neglect, we connect people with authorities, making a positive impact. Join us in creating a better world. make more beautifull">
+    <meta name="keywords" content="HelpSetu, social issues, India, child labor, domestic violence, education, elder neglect, missing persons, animals, roadkill, corruption, NGOs, police, hospitals,education gaps,dowry,">
+    <link rel="shortcut icon" href="../static/images/image.png" type="image/x-icon">
+    <link rel="stylesheet" href="../static/css/forgot.css">
+    
+</head>
+<body>
+    <div class="container">
+        <div class="box1">
+            
+            <form action="{{ url_for('reset_password') }}", method="POST">
+                <h1>Password Reset</h1>
+                <div class="flash-message">
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                        {% if messages %}
+                            {% for category, message in messages %}
+                                {% if category == 'reset' %}
+                                    <div class="alert alert-{{ category }}" role="alert">
+                                        {{ message }}
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+                </div>
+                <input type="tel" placeholder="Mobile Number" name="mob" pattern="[0-9]{10}" required>
+                <button type="submit" name="action" value="sendotp">Send-OTP</button>
+                <input type="text" autocomplete="one-time-code" inputmode="numeric" placeholder="OTP" name="otp">
+                <input type="password" placeholder="New Password" name="new_password">
+                <input type="password" placeholder="Confirm Password" name="confirm_password">
+                <button type="submit" name="action" value="reset_button">Reset Password</button>
+                
+            </form>
+        </div>
+    </div>
+</body>
+</html>

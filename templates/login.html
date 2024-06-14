@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HelpSetu | LogIn</title>
+    <meta name=”robots” content="index, follow">
+    <meta name="description" content="“HelpSetu: Empowering India's local residents to report and address critical social issues. From child labor to elder neglect, we connect people with authorities, making a positive impact. Join us in creating a better world. make more beautifull">
+    <meta name="keywords" content="HelpSetu, social issues, India, child labor, domestic violence, education, elder neglect, missing persons, animals, roadkill, corruption, NGOs, police, hospitals,education gaps,dowry,">
+    <link rel="shortcut icon" href="../static/images/image.png" type="image/x-icon">
+    <link rel="stylesheet" href="../static/css/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+</head>
+<body>
+
+    <div class="container">
+        <div class="box">
+            <div class="box1">
+                <form action="{{ url_for('login') }}" method="POST">
+                    <h1>Log-In</h1>
+                    <div class="flash-message">
+                        {% with messages = get_flashed_messages(with_categories=true) %}
+                            {% if messages %}
+                                {% for category, message in messages %}
+                                    {% if category == 'login' %}
+                                        <div class="alert alert-{{ category }}" role="alert">
+                                            {{ message }}
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                        {% endwith %}
+                    </div>
+                    <input type="text" placeholder="Your Name" id="username" name="username" required value="{{ login_fullname }}">
+                    <input type="tel" placeholder="Mobile Number" name="tel" id="tel" pattern="[0-9]{10}" required value="{{ login_mobilenum }}">
+                    <input id="password" name="log_password" type="password" placeholder="Your Password" required value="{{ login_password }}">
+                    <button type="submit" name="action" value="login">Log In</button>
+                    <div class="extra">
+                        <a href="{{url_for('reset_password')}}">Forgot-Password?</a>
+                        <a href="{{url_for('logout')}}">Log Out</a>
+                    </div>
+                </form>
+            </div>
+            <div class="box2">
+                <div class="logo">
+                
+                    <i class="fa-solid fa-users"></i>
+                    
+                    
+                    <h1>Help</h1>
+                    <h1 id="hh1">सेतु</h1>
+    
+                </div>
+                <div class="flash-message">
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                        {% if messages %}
+                            {% for category, message in messages %}
+                                {% if category == 'create_account' %}
+                                    <div class="alert alert-{{ category }}" role="alert">
+                                        {{ message }}
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+                </div>
+                <form action="{{ url_for('create_account') }}" method="POST" id="otp-form">
+                    <input type="text" placeholder="Full-Name" name="create_username" required value="{{ create_fullname }}">
+                    <input id="create_tel" name="create_tel" type="tel" placeholder="Mobile Number" required pattern="[0-9]{10}" value="{{ create_mobilenum }}">
+                    <input type="password" name="create_password" placeholder="Set Password" required value="{{ create_password }}">
+                    <button type="submit" name="action" value="send_otp" id="send-otp-button">Send-OTP</button>
+                    <input type="text" autocomplete="one-time-code" inputmode="numeric" placeholder="OTP" name="otp">                
+                    <button type="submit" name="action" value="Create_account">Create-Account</button>
+                    
+                </form>
+                
+                
+            </div>
+
+        </div>
+
+    </div>
+    <!-- footer -->
+    <div class="foot">
+        <div class="foot1">
+          <h1>Help-Desk</h1>
+          <h2>Email:-mail.helpsetu@gmail.com</h2>
+        </div>
+        <div class="foot2">
+          <h1>Our Handles</h1>
+          <div class="icons">
+            <a href=""><i class="fa-brands fa-twitter" style="color: #74C0FC;"><h2></h2></i></a>
+            <a href=""><i class="fa-brands fa-facebook" style="color: #63E6BE;"></i></a>
+            <a href=""><i class="fa-brands fa-square-instagram" style="color: #e61e89;"></i></a>
+          </div>
+          
+        </div>
+        <div class="foot3">
+          <h1>Call-Us</h1>
+          <h2>Phone:-000-111-1234</h2>
+        </div>
+        
+
+        
+    </div>
+    <script src="static\js\login.js"></script> 
+</body>
+</html>

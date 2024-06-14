@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HelpSetu | Rewards</title>
+    <meta name=”robots” content="index, follow">
+    <meta name="description" content="“HelpSetu: Empowering India’s local residents to report and address critical social issues. From child labor to elder neglect, we connect people with authorities, making a positive impact. Join us in creating a better world. make more beautifull">
+    <meta name="keywords" content="HelpSetu, social issues, India, child labor, domestic violence, education, elder neglect, missing persons, animals, roadkill, corruption, NGOs, police, hospitals,education gaps,dowry,">
+    <link rel="shortcut icon" href="../static/images/image.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <style>
+      body{
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      body::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-image: url(../static/images/reward.jpg);
+        background-size: cover;
+        opacity: 0.82; /* Adjust the opacity as needed */
+        z-index: -1;
+      }
+      .greetings{
+        color: rgb(1, 118, 105);
+        font-family:'Times New Roman', Times, serif;
+        font-size: 20px;
+        margin-top: 30px;
+      }
+      .container {
+        width: 80%;
+        margin: 40px auto;
+        padding: 20px;
+        background-color: #c9c9c9;
+        border-radius: 8px;
+        box-shadow: 0 10px 12px rgba(248, 248, 248, 0.415);
+      }
+      .points {
+          margin: 40px 0;
+          color: #333;
+          font-size: 24px;
+          font-weight: bold;
+      }
+      .coupons{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 75vh;
+        text-align: center;
+        font-size: 40px;
+        color: rgba(179, 175, 175, 0.963);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="greetings"><h1>Hi, {{ current_user.fullname }}</h1></div>
+      <div class="points">
+          HelpSetu Coins: {{ user_points }}
+          <i class="fas fa-coins" style="color: rgb(140, 123, 30);"></i>
+      </div>
+  </div>
+  <div class="coupons">
+    <!-- Loop through coupons and display them -->
+    Coupons will be shown here...
+  </div>
+  </body>
+</html>

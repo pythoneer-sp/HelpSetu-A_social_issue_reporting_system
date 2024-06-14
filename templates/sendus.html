@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HelpSetu | Form</title>
+  <link rel="stylesheet" href="../static/css/sendus.css">
+  <link rel="shortcut icon" href="../static/images/image.png" type="image/x-icon">
+  <link rel="icon" href="../static/images/image.png" type="image/x-icon" />
+  <meta name=”robots” content="index, follow">
+  <meta name="description" content="“HelpSetu: Empowering India’s local residents to report and address critical social issues. From child labor to elder neglect, we connect people with authorities, making a positive impact. Join us in creating a better world. make more beautifull">
+  <meta name="keywords" content="HelpSetu, social issues, India, child labor, domestic violence, education, elder neglect, missing persons, animals, roadkill, corruption, NGOs, police, hospitals,education gaps,dowry,">
+  <link rel="shortcut icon" href="../static/images/image.png" type="image/x-icon">
+
+</head>
+<body>
+  <!-- Form starts here -->
+  <br><br><br><br><br><br><br><br><br><br><br><br>
+  <div class="container">
+    <form action="{{ url_for('sendus') }}" method="post" enctype="multipart/form-data" class="form">
+      <!-- Form title -->
+      <h2>Fill the form and we'll take action very soon</h2>
+      <!-- Name field -->
+      <div class="flash-message">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    {% if category == 'sendus' %}
+                        <div class="alert alert-{{ category }}" role="alert">
+                            {{ message }}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+      </div>
+      <div class="form-group">
+        <label for="name"><strong>Your Name</strong></label>
+        <input type="text" id="name" name="name" required placeholder="Your Name">
+      </div>
+      <!-- Contact number field -->
+      <div class="form-group">
+        <label for="contact"><strong>Contact Number</strong></label>
+        <input type="tel" id="contact" name="contact" required placeholder="Your Contact Number">
+      </div>
+      <!-- Victim name field -->
+      <div class="form-group">
+        <label for="subject"><strong>Victim Name</strong></label>
+        <input type="text" id="subject" name="subject" placeholder="Victim Name">
+      </div>
+      <!-- Address field -->
+      <div class="form-group">
+        <label for="address"><strong>Address</strong></label>
+        <textarea id="address" name="address" required placeholder="Your Address"></textarea>
+      </div>
+      <!-- State dropdown -->
+      <div class="form-group">
+        <label for="state"><strong>State</strong></label>
+        <select id="state" name="state" required>
+          <option value="" disabled selected>Select State</option>
+          <option value="Andhra Pradesh">Andhra Pradesh</option>
+          <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+          <option value="Assam">Assam</option>
+          <option value="Bihar">Bihar</option>
+          <option value="Chhattisgarh">Chhattisgarh</option>
+          <option value="Goa">Goa</option>
+          <option value="Gujarat">Gujarat</option>
+          <option value="Haryana">Haryana</option>
+          <option value="Himachal Pradesh">Himachal Pradesh</option>
+          <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+          <option value="Jharkhand">Jharkhand</option>
+          <option value="Karnataka">Karnataka</option>
+          <option value="Kerala">Kerala</option>
+          <option value="Madya Pradesh">Madya Pradesh</option>
+          <option value="Maharashtra">Maharashtra</option>
+          <option value="Manipur">Manipur</option>
+          <option value="Meghalaya">Meghalaya</option>
+          <option value="Mizoram">Mizoram</option>
+          <option value="Nagaland">Nagaland</option>
+          <option value="Orissa">Orissa</option>
+          <option value="Punjab">Punjab</option>
+          <option value="Rajasthan">Rajasthan</option>
+          <option value="Sikkim">Sikkim</option>
+          <option value="Tamil Nadu">Tamil Nadu</option>
+          <option value="Telangana">Telangana</option>
+          <option value="Tripura">Tripura</option>
+          <option value="Uttaranchal">Uttaranchal</option>
+          <option value="Uttar Pradesh">Uttar Pradesh</option>
+          <option value="West Bengal">West Bengal</option>
+          <option disabled style="background-color:#aaa; color:#fff">UNION Territories</option>
+          <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+          <option value="Chandigarh">Chandigarh</option>
+          <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
+          <option value="Daman and Diu">Daman and Diu</option>
+          <option value="Delhi">Delhi</option>
+          <option value="Lakshadeep">Lakshadeep</option>
+          <option value="Pondicherry">Pondicherry</option>
+          <!-- Add other states here -->
+        </select>
+      </div>
+      <!-- District text input -->
+      <div class="form-group">
+        <label for="district"><strong>District</strong></label>
+        <input type="text" id="district" name="district" required placeholder="Enter District">
+      </div>
+      <!-- Block text input -->
+      <div class="form-group">
+        <label for="block"><strong>Block</strong></label>
+        <input type="text" id="block" name="block" required placeholder="Enter Block">
+      </div>
+      <!-- Button to upload location -->
+      <div class="form-group">
+        <button id="upload_location" type="button" onclick="getLocation()">Upload Location</button><input type="hidden" id="latitude" name="latitude">
+        <input type="hidden" id="longitude" name="longitude">
+      </div>
+      <!-- Upload victim photo field -->
+      <div class="form-group">
+        <label for="child_photo"><strong>Upload Victim Photo (if you can)</strong></label>
+        <input type="file" id="child_photo" name="child_photo">
+      </div>
+      <!-- Additional details field -->
+      <div class="form-group">
+        <label for="more_details"><strong>Wanna Share Some more details</strong></label>
+        <textarea id="more_details" name="more_details" placeholder="Additional Details"></textarea>
+      </div>
+      <!-- Submit button -->
+      <!-- Replaced with styled anchor tag -->
+      <button class="button" name="action">Submit</button>
+
+    </form>
+    
+  </div>
+  <br><br><br><br><br><br><br><br><br><br><br><br>
+  <!-- JavaScript for uploading live location -->
+  <script src="/static/js/sendus.js">
+    
+  </script>
+</body>
+</html>

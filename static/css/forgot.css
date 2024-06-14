@@ -1,0 +1,70 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  background-image: url("../webp/login.webp");
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 {
+  margin-bottom: 2rem; /* Use rem for scalable spacing */
+}
+
+button {
+  background-color: gray;
+  color: black;
+  font-weight: bold;
+  padding: 0.5rem 1rem; /* Add padding for better touch targets */
+}
+
+.container {
+  width: 100%;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.box1 {
+  max-width: 30rem; /* Use rem for scalable sizes */
+  width: 90%; /* Use percentage for responsive width */
+  background-color: #242525ab;
+  border-radius: 1rem; /* Use rem for consistent scaling */
+  color: white;
+  box-shadow: 0px 0px 10px 0.6px rgba(255, 255, 255, 0.765);
+  padding: 2rem; /* Use rem for scalable padding */
+}
+
+form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; /* Use rem for scalable spacing */
+}
+
+form input,
+form button {
+  padding: 0.5rem;
+  font-size: 1rem;
+  color: black;
+}
+
+@media (max-width: 800px) {
+  h1 {
+    font-size: 1.5rem; /* Use rem for scalable font size */
+  }
+
+  .box1 {
+    max-width: none; /* Allow box to take full width on small screens */
+    width: 100%;
+    border-radius: 1rem; /* Consistent with the larger view */
+  }
+}

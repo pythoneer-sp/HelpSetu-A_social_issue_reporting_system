@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HelpSetu</title>
+    <link rel="stylesheet" href="..\static\css\style.css">
+    <link rel="shortcut icon" href="../static/images/image.png" type="image/x-icon">
+    <link rel="icon" href="../static/images/image.png" type="image/x-icon" />
+    <meta name="author" content="Alok Ranjan">
+    <meta name=”robots” content="index, follow">
+    <meta name="description" content="“HelpSetu: Empowering India’s local residents to report and address critical social issues. From child labor to elder neglect, we connect people with authorities, making a positive impact. Join us in creating a better world. make more beautifull">
+    <meta name="keywords" content="HelpSetu, social issues, India, child labor, domestic violence, education, elder neglect, missing persons, animals, roadkill, corruption, NGOs, police, hospitals,education gaps,dowry,">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    
+  </head>
+
+<body>
+   <!-- <audio  autoplay  >
+    <source src="help.MP3" type="audio/mp3">
+   </audio> -->
+  
+  <div id="preload">
+    
+    
+
+  </div>
+  
+  
+  
+    <!-- <script src="/javascript/script.js"></script> -->
+    <div class="container">
+        <!-- nav section -->
+        <div class="nav">
+            <div class="logo">
+            
+              <img src="../static/images/Logo.png" alt="Help Setu Logo" class="logo image">
+           
+            </div>
+            <div class="nav-detail">
+                <div class="dropdown">
+                    <button id="a2"  class="dropbtn btn">Submit Your Issue
+                      
+                    </button>
+                    <div class="dropdown-content">
+                      <div class="header">
+                        <h2>Choose Your Category </h2>
+                      </div>
+                      <div class="row">
+                        <div class="column">
+                          <h3>Child-Welfare</h3>
+                          <a href="{{ url_for('sendus') }}">Child Labour </a>
+                          <a href="{{ url_for('sendus') }}">Child Education</a>
+                          <a href="{{ url_for('sendus') }}">Child Marriage</a>
+                        </div>
+                        <div class="column">
+                          <h3>Social-Issues</h3>
+                          <a href="{{ url_for('sendus') }}">Dowry</a>
+                          <a href="{{ url_for('sendus') }}">Domestic Violence</a>
+                          <a href="{{ url_for('sendus') }}">Missing Persons</a>
+                        </div>
+                        <div class="column">
+                          <h3>Community Saftey And Governance</h3>
+                          <a href="{{ url_for('sendus') }}">Corruption</a>
+                          <a href="{{ url_for('sendus') }}">Violations Of Regulations</a>
+                          <a href="{{ url_for('sendus') }}">Distressed Animals</a>
+                        </div>
+                        <div class="column">
+                          <h3>Deforestation And Wildlife Protection</h3>
+                          <a href="{{ url_for('sendus') }}">Illegal Logging And Tree Cutting</a>
+                          <a href="{{ url_for('sendus') }}">Habitat Destruction </a>
+                          <a href="{{ url_for('sendus') }}">Protection Of Endangered Species</a>
+                        </div>
+                     
+                        
+                      </div>
+                    </div>
+                  </div>
+                
+                <a class="btn" href="{{ url_for('partners') }}">Partners</a>
+                <a class="btn" href="{{ url_for('part') }}">About-Us</a>
+                <a class="btn"  href="{{ url_for('donate') }}" target="main">Donate-Us</a>
+                <a class="btn"  href="{{ url_for('login') }}" target="main">Account</a>
+                {% if user_initial %}
+                  <a href="{{ url_for('rewards')}}" class="user-icon">{{ user_initial }}</a>
+                {% else %}
+                  <a href="{{ url_for('rewards')}}" class="user-icon"><i class="fas fa-user"></i></a>
+                {% endif %}
+            </div>
+            <!-- The overlay -->
+            <div id="myNav" class="overlay">
+
+              <!-- Button to close the overlay navigation -->
+              <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+              <!-- Overlay content -->
+              <div class="overlay-content">
+                <a href="{{ url_for('partners') }}">Partners</a>
+                <a href="{{ url_for('part') }}">About-Us</a>
+                <a href="{{ url_for('donate') }}">Donate-Us</a>
+                <a href="{{ url_for('login') }}">Sign-In</a>
+              </div>
+
+            </div>
+
+            <!-- Use any element to open/show the overlay navigation menu -->
+            <i onclick="openNav()" id="i2" class="fa-solid fa-bars"></i>
+
+           
+            
+           
+            
+            
+                
+                
+          
+
+
+        </div>
+     <!-- hero section -->
+       
+        <div class="hero">
+          
+      
+          
+
+        </div>
+        
+        <div class="move">
+          <marquee  loop="infinite" scrollamount="10"  behavior="scroll" direction="left">Our website is currently undergoing maintenance. Please bear with us, it will be live again shortly</marquee>
+
+          
+        </div>
+    <!-- footer -->
+        <div class="foot">
+          <div class="foot1">
+            <h1>Help-Desk</h1>
+            <h2>Email:-mail.helpsetu@gmail.com</h2>
+            
+          </div>
+          <div class="foot2">
+            <h1>Our Handles</h1>
+            <div class="icons">
+              <a href=""><i class="fa-brands fa-twitter" style="color: #74C0FC;"><h2></h2></i></a>
+              <a href=""><i class="fa-brands fa-facebook" style="color: #63E6BE;"></i></a>
+              <a href=""><i class="fa-brands fa-square-instagram" style="color: #e61e89;"></i></a>
+            </div>
+            
+          </div>
+          <div class="foot3">
+            <h1>Call-Us</h1>
+            <h2>Phone:-000-111-1234</h2>
+          </div>
+          
+
+          
+        </div>
+
+    </div>
+  
+   <script src="/static/js/script.js"></script> 
+</body>
+</html>
