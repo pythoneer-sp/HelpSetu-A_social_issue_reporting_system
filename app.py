@@ -5,7 +5,7 @@ from flask import render_template, url_for, redirect
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_sqlalchemy import SQLAlchemy
 from functions import UserModel,ReportModel
-from config import SECRET_KEY, MAIL_PASSWORD, TWILIO_ACCOUNT_SIID, TWILIO_AUTH_TOKEEN
+from config import SECRET_KEY, MAIL_PASSWORD, TWILIO_ACCOUNT_SIID, TWILIO_AUTH_TOKEEN, TWILIO_NUMBER
 from twilio.rest import Client
 import random
 import os
@@ -50,7 +50,7 @@ def send_email(r_email,new_report,file_path):
 # Twilio Credintials
 TWILIO_ACCOUNT_SID=TWILIO_ACCOUNT_SIID
 TWILIO_AUTH_TOKEN=TWILIO_AUTH_TOKEEN
-TWILIO_PHONE_NUMBER='+17722120629'
+TWILIO_PHONE_NUMBER=TWILIO_NUMBER
 
 # Intialize the twilio client account
 client = Client(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
